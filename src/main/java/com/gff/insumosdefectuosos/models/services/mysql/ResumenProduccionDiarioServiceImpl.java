@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.gff.insumosdefectuosos.models.dao.mysql.IResumenProduccionDiarioDao;
+import java.sql.Timestamp;
 
 @Service
 public class ResumenProduccionDiarioServiceImpl implements IResumenProduccionDiarioService{
@@ -23,7 +24,7 @@ public class ResumenProduccionDiarioServiceImpl implements IResumenProduccionDia
     
     @Override
     @Transactional(readOnly = true)
-    public List<ResumenProduccionDiario> findByBetweenDate(Date dateFrom, Date datTo) {
+    public List<ResumenProduccionDiario> findByBetweenDate(Timestamp dateFrom, Timestamp datTo) {
         return this.resumenProdDiario.findByBetweenDate(dateFrom, datTo);
     }
 }

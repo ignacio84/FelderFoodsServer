@@ -61,7 +61,7 @@ public class ResumenProduccionDiario implements Serializable {
     private String cantidadDefectoE10089;
     
     @Column(name = "cajprobE10083")
-    private String cantidadDefectoE10087;
+    private String cantidadDefectoE10083;
 
     public Integer getId() {
         return id;
@@ -175,16 +175,18 @@ public class ResumenProduccionDiario implements Serializable {
         this.cantidadDefectoE10089 = cantidadDefectoE10089;
     }
 
-    public String getCantidadDefectoE10087() {
-        return cantidadDefectoE10087;
+    public String getCantidadDefectoE10083() {
+        return cantidadDefectoE10083;
     }
 
-    public void setCantidadDefectoE10087(String cantidadDefectoE10087) {
-        this.cantidadDefectoE10087 = cantidadDefectoE10087;
+    public void setCantidadDefectoE10083(String cantidadDefectoE10083) {
+        this.cantidadDefectoE10083 = cantidadDefectoE10083;
     }
 
     @Override
     public String toString() {
-        return "ResumenProduccionDiario{" + "id=" + id + ", fechaResumen=" + fechaResumen + ", fechaMovimiento=" + fechaMovimiento + ", responsableEmpaque=" + responsableEmpaque + ", responsableAlmacen=" + responsableAlmacen + ", cantidadVitafil=" + cantidadVitafil + ", catidadPlasticoAzul=" + catidadPlasticoAzul + ", cantidadDanadaE10061=" + cantidadDanadaE10061 + ", cantidadDanadaE10067=" + cantidadDanadaE10067 + ", cantidadDanadaE10089=" + cantidadDanadaE10089 + ", cantidadDanadaE10083=" + cantidadDanadaE10083 + ", cantidadDefectoE10061=" + cantidadDefectoE10061 + ", cantidadDefectoE10067=" + cantidadDefectoE10067 + ", cantidadDefectoE10089=" + cantidadDefectoE10089 + ", cantidadDefectoE10087=" + cantidadDefectoE10087 + '}';
+        return "ResumenProduccionDiario{" + "id=" + id + ", fechaResumen=" + fechaResumen + ", fechaMovimiento=" + fechaMovimiento + ", responsableEmpaque=" + responsableEmpaque + ", responsableAlmacen=" + responsableAlmacen + ", cantidadVitafil=" + cantidadVitafil + ", catidadPlasticoAzul=" + catidadPlasticoAzul + ", cantidadDanadaE10061=" + cantidadDanadaE10061 + ", cantidadDanadaE10067=" + cantidadDanadaE10067 + ", cantidadDanadaE10089=" + cantidadDanadaE10089 + ", cantidadDanadaE10083=" + cantidadDanadaE10083 + ", cantidadDefectoE10061=" + cantidadDefectoE10061 + ", cantidadDefectoE10067=" + cantidadDefectoE10067 + ", cantidadDefectoE10089=" + cantidadDefectoE10089 + ", cantidadDefectoE10083=" + cantidadDefectoE10083 + '}';
     }
+
+ 
 }

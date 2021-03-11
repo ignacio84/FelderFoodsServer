@@ -7,7 +7,9 @@ import com.gff.insumosdefectuosos.models.entity.sqlserver.Articulo;
 import com.gff.insumosdefectuosos.models.services.mysql.IResumenProduccionDiarioService;
 import com.gff.insumosdefectuosos.models.services.sqlserver.IArticuloService;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +43,7 @@ public class InsumosDefectuososController {
         return serviceProdDiario.getAll();
     }
 
-//    @Secured({"ROLE_ADMIN", "ROLE_CONINS"})
+    @Secured({"ROLE_ADMIN", "ROLE_CONINS"})
     @PostMapping("/postArticulos")
     public ResponseEntity<?> postArticulos(@RequestBody Map<String, Object> obj) {
         Map<String, Object> response = new HashMap<>();
@@ -58,6 +60,7 @@ public class InsumosDefectuososController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_CONINS"})
     @PostMapping("/postInsumos")
     public ResponseEntity<?> postInsumos(@RequestBody Map<String, Object> obj) {
         Date dateFrom;
@@ -68,11 +71,22 @@ public class InsumosDefectuososController {
         try {
             dateFrom = mapper.convertValue(obj.get("dateFrom"), Date.class);
             dateTo = mapper.convertValue(obj.get("dateTo"), Date.class);
-            response.put("insumos", serviceProdDiario.findByBetweenDate(dateFrom, dateTo));
+            response.put("insumos", serviceProdDiario.findByBetweenDate(
+                    this.formatingDate(dateFrom, 0, 0, 0),
+                    this.formatingDate(dateTo, 23, 59, 59)));
         } catch (Exception e) {
             response.put("msj", e.getMessage());
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+    }
+
+    public Timestamp formatingDate(Date date, Integer hour, Integer minute, Integer second) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR, hour);
+        calendar.add(Calendar.MINUTE, minute);
+        calendar.add(Calendar.SECOND, second);
+        return new Timestamp(calendar.getTimeInMillis());
     }
 }
