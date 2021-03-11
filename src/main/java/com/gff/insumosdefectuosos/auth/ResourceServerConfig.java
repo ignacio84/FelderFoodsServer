@@ -22,7 +22,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
                 //                HttpMethod.GET, 
-                "/insumos/**")
+                "/insumos/**"
+                )
                 .permitAll()
                 .anyRequest().authenticated()
                 .and().cors().configurationSource(corsConfigurationSource());

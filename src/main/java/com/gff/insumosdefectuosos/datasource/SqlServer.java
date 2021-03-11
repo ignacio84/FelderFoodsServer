@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "SqlServerEntityManager", transactionManagerRef = "SqlServerTransactionManager", basePackages = {"com.gff.api.models.dao.sqlserver"})//PACKAGE DONDE SE ENCUENTRAN LAS CLASES DAO DE SQLSERVER
+@EnableJpaRepositories(entityManagerFactoryRef = "SqlServerEntityManager", transactionManagerRef = "SqlServerTransactionManager", basePackages = {"com.gff.insumosdefectuosos.models.dao.sqlserver"})//PACKAGE DONDE SE ENCUENTRAN LAS CLASES DAO DE SQLSERVER
 public class SqlServer {
 
     @Autowired

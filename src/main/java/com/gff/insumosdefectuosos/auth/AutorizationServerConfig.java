@@ -43,8 +43,8 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
     /* CONFIGURA CREDENCIALES DE LAS APP CLIENTES DE ESTA APPIREST*/
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("angular")
-                .secret(passwordEncoder.encode("angular"))
+        clients.inMemory().withClient("#$%&6Ls_-*+")
+                .secret(passwordEncoder.encode("#$%&6Ls_-*+"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
                 .accessTokenValiditySeconds(3154000)
