@@ -1,4 +1,4 @@
-package com.gff.insumosdefectuosos.models.entity.mysql;
+package com.spring.app.models.entity.sqlserver;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;

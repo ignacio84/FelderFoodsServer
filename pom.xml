@@ -8,10 +8,10 @@
         <version>2.3.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.gff.insumosdefectuosos</groupId>
+    <groupId>com.gff.app</groupId>
     <artifactId>InsumosDefectuosos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>InsumosDefectuosos</name>
+    <name>SpringBootTemplate</name>
     <description>Backen para consultar insumos de produccion con defecto del fabricante.</description>
     <properties>
         <java.version>1.8</java.version>

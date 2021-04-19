@@ -1,5 +1,4 @@
-package com.gff.insumosdefectuosos.models.entity.mysql;
-
+package com.spring.app.models.entity.sqlserver;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,3 +37,4 @@ public class Role implements Serializable {
     }
 
 }
+

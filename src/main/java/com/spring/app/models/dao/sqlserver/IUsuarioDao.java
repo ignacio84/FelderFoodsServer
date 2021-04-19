@@ -1,6 +1,5 @@
-package com.gff.insumosdefectuosos.models.dao.mysql;
-
-import com.gff.insumosdefectuosos.models.entity.mysql.Usuario;
+package com.spring.app.models.dao.sqlserver;
+import com.spring.app.models.entity.sqlserver.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,4 +1,4 @@
-package com.gff.insumosdefectuosos.auth;
+package com.spring.app.auth;
 
 import java.util.Arrays;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

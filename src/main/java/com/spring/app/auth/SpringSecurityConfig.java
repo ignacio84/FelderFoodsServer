@@ -1,4 +1,4 @@
-package com.gff.insumosdefectuosos.auth;
+package com.spring.app.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

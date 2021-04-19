@@ -1,4 +1,4 @@
-package com.gff.insumosdefectuosos.auth;
+package com.spring.app.auth;
 
 public class JwtConfig {
     public static final String LLAVE_SECRETA = "llave";

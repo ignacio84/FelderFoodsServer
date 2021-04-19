@@ -1,8 +1,8 @@
 
-package com.gff.insumosdefectuosos.auth;
+package com.spring.app.auth;
 
-import com.gff.insumosdefectuosos.models.entity.mysql.Usuario;
-import com.gff.insumosdefectuosos.models.services.mysql.UsuarioService;
+import com.spring.app.models.entity.sqlserver.Usuario;
+import com.spring.app.models.services.sqlserver.UsuarioService;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
