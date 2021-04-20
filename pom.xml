@@ -11,7 +11,7 @@
     <groupId>com.gff.app</groupId>
     <artifactId>InsumosDefectuosos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SpringBootTemplate</name>
+    <name>FelderFoodsAppBackEnd</name>
     <description>Backen para consultar insumos de produccion con defecto del fabricante.</description>
     <properties>
         <java.version>1.8</java.version>

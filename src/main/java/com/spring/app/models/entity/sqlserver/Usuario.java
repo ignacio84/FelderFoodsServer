@@ -1,4 +1,5 @@
 package com.spring.app.models.entity.sqlserver;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -15,11 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "_usuarios")
+@Table(name = "usuarios")
 public class Usuario implements Serializable {
 
-     private static final long serialVersionUID = 1L;
-    
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,18 +34,14 @@ public class Usuario implements Serializable {
     private Boolean enabled;
 
     private String nombre;
-    
+
     private String apellido;
-    
-    private String userSAP;
-    
-    private String passwordSAP;
 
     @Column(unique = true)
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "_usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
+    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"),
             uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
@@ -114,25 +111,9 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-   
-    public String getUserSAP() {
-        return userSAP;
-    }
-
-    public void setUserSAP(String userSAP) {
-        this.userSAP = userSAP;
-    }
-
-    public String getPasswordSAP() {
-        return passwordSAP;
-    }
-
-    public void setPasswordSAP(String passwordSAP) {
-        this.passwordSAP = passwordSAP;
-    }
-
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre=" + nombre + ", apellido=" + apellido + ", userSAP=" + userSAP + ", passwordSAP=" + passwordSAP + ", email=" + email + ", roles=" + roles + '}';
+        return "Usuario{" + "id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", roles=" + roles + '}';
     }
+        
 }
