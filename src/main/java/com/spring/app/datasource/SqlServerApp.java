@@ -50,7 +50,6 @@ public class SqlServerApp {
         propierties.put("hibernate.format_sql", env.getProperty("sqlserver.hibernate.format_sql"));
         propierties.put("hibernate.dialect", env.getProperty("sqlserver.jpa.database-platform"));
         propierties.put("hibernate.hbm2ddl.auto", env.getProperty("sqlserver.jpa.hibernate.ddl-auto"));
-        propierties.put("hibernate.schema_update.unique_constraint_strategy", env.getProperty("RECREATE_QUIETLY"));
         em.setJpaPropertyMap(propierties);
         return em;
     }

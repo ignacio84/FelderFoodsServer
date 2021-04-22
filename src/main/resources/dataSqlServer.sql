@@ -1,4 +1,7 @@
 
+
+
+/*INSERTA USUARIOS CON SUS ROLES*/
 INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
 INSERT INTO roles (nombre) VALUES ('ROLE_USER');
 INSERT INTO roles (nombre) VALUES ('ROLE_MATERIA');
@@ -13,3 +16,12 @@ INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('2', '1');
 INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '2');
 INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '3');
 
+/*INSERTA MENU*/
+
+/*MENU PRIMEL NIVEL*/
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('VENTAS', 'Ventas - Clientes', 'pricetags', 'MAIN' );
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('COMPRAS', 'Compras - proveedores', 'cart', 'MAIN' );
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('SOCIOS', 'Socios De Negocios', 'people', 'MAIN' );
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('BANCOS', 'Gestion De Bancos', 'server', 'MAIN' );
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('INVENTARIO', 'Inventario', 'grid', 'MAIN' );
+INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('PRODUCCION', 'Produccion', 'calculator', 'MAIN' );

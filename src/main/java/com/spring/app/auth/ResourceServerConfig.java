@@ -22,7 +22,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
                 //                HttpMethod.GET, 
-                "/insumos/**"
+//                "/insumos/**"
+                "/menu"
                 )
                 .permitAll()
                 .anyRequest().authenticated()
