@@ -23,7 +23,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.authorizeRequests().antMatchers(
                 //                HttpMethod.GET, 
 //                "/insumos/**"
-                "/menu"
+                "/**"
                 )
                 .permitAll()
                 .anyRequest().authenticated()

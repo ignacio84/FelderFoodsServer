@@ -18,10 +18,24 @@ INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '3');
 
 /*INSERTA MENU*/
 
-/*MENU PRIMEL NIVEL*/
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('VENTAS', 'Ventas - Clientes', 'pricetags', 'MAIN' );
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('COMPRAS', 'Compras - proveedores', 'cart', 'MAIN' );
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('SOCIOS', 'Socios De Negocios', 'people', 'MAIN' );
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('BANCOS', 'Gestion De Bancos', 'server', 'MAIN' );
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('INVENTARIO', 'Inventario', 'grid', 'MAIN' );
-INSERT INTO menu ( clave, nombre, icono, clavePadre ) VALUES ('PRODUCCION', 'Produccion', 'calculator', 'MAIN' );
+/*MENU PRINCIPAL*/
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('VENTAS','MAIN', 'Ventas - Clientes', 'pricetags');
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('COMPRAS','MAIN', 'Compras - proveedores', 'cart' );
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('SOCIOS', 'MAIN','Socios De Negocios', 'people' );
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('BANCOS', 'MAIN','Gestión De Bancos', 'server' );
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('INVENTARIO', 'MAIN','Inventario', 'grid' );
+INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('PRODUCCION', 'MAIN','Producción', 'calculator' );
+
+
+/*SUB MENU VENTAS*/
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_ORDEN','VENTAS', 'Orden de venta', 'browsers' );
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_ENTREGA','VENTAS', 'Entrega', 'browsers' );
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_DEVOLUCION','VENTAS', 'Devolución', 'browsers' );
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_FACTURA','VENTAS', 'Factura de deudores', 'browsers' );
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_NOTA_CREDITO','VENTAS', 'Orden de venta', 'browsers' );
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_INFORMES','VENTAS', 'Informes de ventas', 'browsers' );
+
+
+/*SUB MENU VENTAS->INFORMES*/
+INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA_INFORMES_VENTA_ARTICULO','VENTA_INFORMES', 'Informe de ventas artículo', 'browsers' );
+

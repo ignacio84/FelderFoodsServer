@@ -1,11 +1,13 @@
 
 package com.spring.app.models.entity.sqlserver;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "menu")
@@ -21,6 +23,9 @@ public class Menu implements Serializable {
     private String icono;
     
     private String clavePadre;
+    
+    @Transient
+    private List<Menu> subMenu;
 
     public String getClave() {
         return clave;
@@ -54,11 +59,17 @@ public class Menu implements Serializable {
         this.clavePadre = clavePadre;
     }
 
+    public List<Menu> getSubMenu() {
+        return subMenu;
+    }
+
+    public void setSubMenu(List<Menu> subMenu) {
+        this.subMenu = subMenu;
+    }
+
     @Override
     public String toString() {
-        return "Menu{" + "clave=" + clave + ", nombre=" + nombre + ", icono=" + icono + ", clavePadre=" + clavePadre + '}';
+        return "Menu{" + "clave=" + clave + ", nombre=" + nombre + ", icono=" + icono + ", clavePadre=" + clavePadre + ", subMenu=" + subMenu + '}';
     }
-    
-    
     
 }

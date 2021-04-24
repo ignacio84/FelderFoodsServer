@@ -54,6 +54,7 @@ public class SqlServerApp {
         return em;
     }
 
+
 //    @Primary
     @Bean(name = "SqlServerTransactionManager")
     public PlatformTransactionManager transactionManager() {
@@ -68,6 +69,7 @@ public class SqlServerApp {
         dataSourceInitializer.setDataSource(this.sqlServerDataSource());
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.addScript(new ClassPathResource(env.getProperty("sqlserver.datasource.import_file")));//SCERIPT CON TODOS LOS INSERT
+        databasePopulator.setSqlScriptEncoding("UTF-8");
         dataSourceInitializer.setDatabasePopulator(databasePopulator);
         dataSourceInitializer.setEnabled(env.getProperty("sqlserver.datasource.initialize", Boolean.class, false));//PROPIEDAD PARA INICIALIZAR LA BASE DE DATOS
         return dataSourceInitializer;
