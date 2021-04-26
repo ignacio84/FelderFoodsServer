@@ -23,24 +23,22 @@ public class MenuServiceImpl implements IMenuService {
     public List<Menu> findMenu() {
         this.fullMenu = this.menuDao.findAll();
         this.menu = this.findByClavePadre("MAIN");
-        for (Menu menu1 : menu) {
-            menu1.setSubMenu(this.findByClavePadre(menu1.getClave()));
-            for (Menu menu2 : menu1.getSubMenu()) {
-                menu2.setSubMenu(this.findByClavePadre(menu2.getClave()));
-                for (Menu menu3 : menu2.getSubMenu()) {
-                    menu3.setSubMenu(this.findByClavePadre(menu3.getClave()));
-                    for (Menu menu4 : menu3.getSubMenu()) {
-                        menu4.setSubMenu(this.findByClavePadre(menu4.getClave()));
-                        for (Menu menu5 : menu4.getSubMenu()) {
-                            menu5.setSubMenu(this.findByClavePadre(menu5.getClave()));
-                        }
-                    }
-                }
-            }
-        }
+        this.buildMenuTree(menu);
         return menu;
     }
-
+    
+    
+    /*METODO GENERA ARREGLO CON EL ARBOL DEL MENU*/
+    private void buildMenuTree(List<Menu> list){
+        for (int i = 0; i < list.size(); i++) {
+            if (this.findByClavePadre(list.get(i).getClave()).size()>0){
+                list.get(i).setSubMenu(this.findByClavePadre(list.get(i).getClave()));
+                this.buildMenuTree(list.get(i).getSubMenu());
+            }
+        }
+    }
+    
+    /*METODO BUSCA POR CLAVE DEL PADRE EN EL LISTADO DEL MENU*/
     private List<Menu> findByClavePadre(String clavePadre) {
         return this.fullMenu
                 .stream()
