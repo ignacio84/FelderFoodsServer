@@ -6,6 +6,7 @@ import com.spring.app.models.services.sqlserver.IMenuService;
 import com.spring.app.models.services.sqlserver.IRolePermisoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class MenuController {
         return this.menuService.findMenu();
     }
     
-    
+//    @Secured({"*"})
     @GetMapping("/permisos/{role}")
     public List<RolePermiso> permiso(@PathVariable String role) {
         return this.permisoService.findByRole(role);

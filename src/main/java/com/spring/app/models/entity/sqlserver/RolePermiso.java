@@ -1,4 +1,3 @@
-
 package com.spring.app.models.entity.sqlserver;
 
 import java.io.Serializable;
@@ -13,20 +12,24 @@ import javax.persistence.Transient;
 @Table(name = "role_permiso")
 @IdClass(RolePermisoPK.class)
 public class RolePermiso implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     private String clave;
-    
+
     @Id
     private String role;
-    
+
     private String nombre;
-    
+
     private String icono;
-    
+
     private String clavePadre;
+
+    private String html;
+
+    private Boolean menuFinal;
 
     public String getRole() {
         return role;
@@ -35,8 +38,7 @@ public class RolePermiso implements Serializable {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
+
     @Transient
     private List<RolePermiso> subMenu;
 
@@ -80,8 +82,25 @@ public class RolePermiso implements Serializable {
         this.subMenu = subMenu;
     }
 
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
+    }
+
+    public Boolean getMenuFinal() {
+        return menuFinal;
+    }
+
+    public void setMenuFinal(Boolean menuFinal) {
+        this.menuFinal = menuFinal;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioPermiso{" + "clave=" + clave + ", nombre=" + nombre + ", icono=" + icono + ", clavePadre=" + clavePadre + ", role=" + role + ", subMenu=" + subMenu + '}';
+        return "RolePermiso{" + "clave=" + clave + ", role=" + role + ", nombre=" + nombre + ", icono=" + icono + ", clavePadre=" + clavePadre + ", html=" + html + ", menuFinal=" + menuFinal + '}';
     }
+
 }
