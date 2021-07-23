@@ -8,11 +8,11 @@
         <version>2.3.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.spring.app</groupId>
+    <groupId>com.gff</groupId>
     <artifactId>BackEnd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>FelderFoodsAppBackEnd</name>
-    <description>Backen para consultar insumos de produccion con defecto del fabricante.</description>
+    <name>FelderFoodsServer</name>
+    <description>APIRest para sistema de escaneo.</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

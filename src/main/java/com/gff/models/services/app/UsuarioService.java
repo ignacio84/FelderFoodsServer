@@ -1,7 +1,7 @@
-package com.spring.app.models.services.sqlserver;
+package com.gff.models.services.app;
 
-import com.spring.app.models.dao.sqlserver.IUsuarioDao;
-import com.spring.app.models.entity.sqlserver.Usuario;
+import com.gff.models.dao.app.IUsuarioDao;
+import com.gff.models.entity.app.Usuario;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,17 +26,23 @@ public class UsuarioService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioDao.findByUsername(username);
+        Usuario usuario = usuarioDao.findByUsername2(username);
 
         if (usuario == null) {
             System.out.println("Error en el login: no existe usuario '" + username + "' en el sistema");
             throw new UsernameNotFoundException("Error en el login: no existe usuario '" + username + "' en el sistema");
         }
-        List<GrantedAuthority> roles = usuario.getRoles()
-                .stream()
-                .map(role -> new SimpleGrantedAuthority(role.getNombre()))
-                .peek(auth -> System.out.println(auth.getAuthority()))
-                .collect(Collectors.toList());
+
+         List<GrantedAuthority> roles =usuario.getPerfil().getPerfilDetalle()
+        .stream()
+        .map(data->data.getCatalogoControl())
+        .filter( data->data.getNombre().indexOf("ROLE_")!=-1)
+        .map(role -> new SimpleGrantedAuthority(role.getNombre()))
+        .collect(Collectors.toList());
+         
+        if(roles.size()==0){
+            throw new InvalidGrantException("Usuario sin autorizaciones!!");
+        }
         return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, roles);
     }
 

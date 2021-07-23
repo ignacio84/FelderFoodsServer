@@ -1,4 +1,4 @@
-package com.spring.app.auth;
+package com.gff.auth;
 
 import java.util.Arrays;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

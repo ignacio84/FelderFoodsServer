@@ -1,4 +1,4 @@
-package com.spring.app.datasource;
+package com.gff.datasource;
 import java.util.HashMap;
 import java.util.Map;
 import javax.sql.DataSource;
@@ -19,7 +19,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "SqlServerEntityManager", transactionManagerRef = "SqlServerTransactionManager", basePackages = {"com.spring.app.models.dao.sqlserver"})//PACKAGE DONDE SE ENCUENTRAN LAS CLASES DAO DE SQLSERVER
+@EnableJpaRepositories( entityManagerFactoryRef = "SqlServerEntityManager", 
+                        transactionManagerRef = "SqlServerTransactionManager", 
+                        basePackages = {"com.gff.models.dao.app"})//PACKAGE DONDE SE ENCUENTRAN LAS CLASES DAO DE SQLSERVER
 public class SqlServerApp {
 
     
@@ -42,7 +44,7 @@ public class SqlServerApp {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(sqlServerDataSource());
-        em.setPackagesToScan("com.spring.app.models.entity.sqlserver");//PACKAGE DONDE SE ENCUENTRAN LAS CLASES ETITIES HIBERNATE DE SQLSERVER
+        em.setPackagesToScan("com.gff.models.entity.app");//PACKAGE DONDE SE ENCUENTRAN LAS CLASES ETITIES HIBERNATE DE SQLSERVER
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         Map<String, Object> propierties = new HashMap<>();

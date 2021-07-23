@@ -1,4 +1,4 @@
-package com.spring.app.auth;
+package com.gff.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

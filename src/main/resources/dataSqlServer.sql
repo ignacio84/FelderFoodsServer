@@ -1,114 +1,340 @@
 
 
 
-/*INSERTA USUARIOS CON SUS ROLES*/
-INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
-INSERT INTO roles (nombre) VALUES ('ROLE_USER');
-INSERT INTO roles (nombre) VALUES ('ROLE_MATERIA');
-INSERT INTO roles (nombre) VALUES ('ROLE_VENTAS_1');
 
-INSERT INTO usuarios (apellido, email, enabled, nombre, password, username  ) VALUES ('castro', 'ignacio.cm84@gmail.com', 1, 'Ignacio','$2a$10$1tX2JqfI37TtMDR4ketkruhGj6Z9S1o.ORzvszxziKn4iRilxwCxa', 'icastro');
-INSERT INTO usuarios (apellido, email, enabled, nombre, password, username  ) VALUES ('Rodriguez', 'mr@gmail.com', 1, 'Marco','$2a$10$njvEFjEXP6.NOmsZOY4hTemsHPe9JBVuxgjOWrXAA7HQ4lYdAj/mu', 'mrodriguez');
-INSERT INTO usuarios (apellido, email, enabled, nombre, password, username ) VALUES ('prueba', 'prueba@gmail.com', 1, 'Marco','$2a$10$c9vGbfTRL2dj2iSGQigCB.f3Ajf1h7L5phUnYf/Nyv65AjzBky.i.', 'prueba');
-INSERT INTO usuarios (apellido, email, enabled, nombre, password, username ) VALUES ('Campos', 'ventas@gmail.com', 1, 'Juan','$2a$10$c9vGbfTRL2dj2iSGQigCB.f3Ajf1h7L5phUnYf/Nyv65AjzBky.i.', 'ventas');
+/**********************************************INSERTA EN TABLA catalogo_control********************************************************/
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ROLE_ADMIN',
+                        'Rol administrador del sistema.',
+                        1,
+                        -1,
+                        '2021-07-19',
+                        '2021-07-19'
+                    );
 
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('1', '2');
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('1', '1');
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('2', '1');
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '2');
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '3');
-INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('4', '4');
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ROLE_PROD',
+                        'Rol para el area de producción, protege toda la ruta del modulo produccion.',
+                        1,
+                        -1,
+                        '2021-07-19',
+                        '2021-07-19'
+                    );
+
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ROLE_INSUMOS',
+                        'Rol para el área de almacén de insumos, protege toda la ruta del modulo de insumos.',
+                        1,
+                        -1,
+                        '2021-07-19',
+                        '2021-07-19'
+                    );
+
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ROLE_MP_PT',
+                        'Rol para el almacén de materia prima y pruducto terminado, protege toda la ruta del modulo de materia prima y pruducto terminado.',
+                        1,
+                        -1,
+                        '2021-07-19',
+                        '2021-07-19'
+                    );
 
 
-/*INSERTA MENU*/
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF',
+                        'Control en el modulo de produccion para procesar ordenes de fabricación.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
 
-/*MENU PRINCIPAL*/
-INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('VENTAS','MAIN', 'Ventas - Clientes', 'pricetags');
-INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('COMPRAS','MAIN', 'Compras - proveedores', 'cart' );
-INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('SOCIOS', 'MAIN','Socios De Negocios', 'people' );
-INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('INVENTARIO', 'MAIN','Inventario', 'grid' );
-INSERT INTO menu ( clave, clavePadre ,nombre, icono  ) VALUES ('PRODUCCION', 'MAIN','Producción', 'calculator' );
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'PROD_ALM',
+                        'Control en el modulo de produccion para poder ver información de los almacenes.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
+
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'PROD_FIND_PRINT',
+                        'Control en el modulo de produccion para poder buscar ordenes de fabricacion y reimprimir.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
 
 
-/*SUB MENU VENTAS*/
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-ORDEN','VENTAS', 'Orden de venta', 'browsers' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-ENTREGA','VENTAS', 'Entrega', 'albums' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-DEVOLUCION','VENTAS', 'Devolución', 'refresh-circle' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-FACTURA','VENTAS', 'Factura de deudores', 'document-text' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-NOTA-CREDITO','VENTAS', 'Nota de crédito de clientes', 'documents' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-INFORMES','VENTAS', 'Informes de ventas', 'bar-chart' );
+/******************************************INSERTA EN LA TABLA PERFIL perfil************************************************/
+INSERT INTO perfil 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'PRODUCCION',
+                        'perfil para usuario de produccion.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
 
-/*SUB MENU COMPRAS*/
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('COMPRAS-ORDEN','COMPRAS', 'Pedido', 'browsers' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('COMPRAS-ENTRADA','COMPRAS', 'Entrada de mercancías', 'browsers' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('COMPRAS-DEVOLUCION','COMPRAS', 'Devolución de mercancías', 'browsers' );
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('COMPRAS-FACTURA-PROVEEDOR','COMPRAS', 'Factura de proveedores', 'browsers' );
+INSERT INTO perfil 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ADMIN_1',
+                        'Perfil para usuario administrador.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
+
+INSERT INTO perfil 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
+                        'ALMACEN_INSUMOS',
+                        'Perfil para usuario de almacen de insumos.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
 
 
-/*SUB MENU INVENTARIO*/
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('INVENTARIO-MAESTRO-ARTICULO','INVENTARIO', 'Datos maestro de artículo', 'document-text' );
+
+/****************************************INSERTA EN LA TABLA PERFIL perfil_detalle********************************************/
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PRODUCCION',
+                        'perfil para usuario de produccion.',
+                        'S',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1,
+                        2
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PRODUCCION',
+                        'perfil para usuario de produccion.',
+                        'S',
+                        0,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1,
+                        2
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PRODUCCION',
+                        'perfil para usuario de produccion.',
+                        'V',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1,
+                        5
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PRODUCCION',
+                        'perfil para usuario de produccion.',
+                        'N',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1,
+                        6
+                    );
 
 
-/*SUB MENU VENTAS->INFORMES*/
-INSERT INTO menu ( clave, clavePadre, nombre, icono) VALUES ('VENTA-INFORMES-VENTA-ARTICULO','VENTA-INFORMES', 'Informe de ventas artículo', 'browsers' );
+/****************************************INSERTA EN LA TABLA PERFIL usuario********************************************/
+INSERT INTO usuario
+                    (   
+                        username, 
+                        password, 
+                        enabled, 
+                        nombre,
+                        apellido, 
+                        email, 
+                        idUsrAdd,
+                        addAt,
+                        upadateAt,
+                        perfil_id
+                    ) 
+VALUES            
+                    (
+                        'icastro',
+                        '$2a$10$.wMDFU0hzXk5aHCsfEPt9uVqOvqny51GgrOwg9pKo6k9d6Wh5Cv1S',
+                        1,
+                        'Ignacio',
+                        'Castro',
+                        'sistemas@felderfoods.com',
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1
+                    );
 
-
-
--- /*INSERTA LOS MENU A LOS QUE TENDRA ACCESO LOS ROLES ( MENU PRINCIPAL ) */
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('VENTAS','MAIN', 'Ventas - Clientes', 'pricetags','ROLE_VENTAS_1');
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('COMPRAS','MAIN', 'Compras - proveedores', 'cart','ROLE_VENTAS_1' );
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('SOCIOS', 'MAIN','Socios De Negocios', 'people' ,'ROLE_VENTAS_1');
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('INVENTARIO', 'MAIN','Inventario', 'grid' ,'ROLE_VENTAS_1');
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('PRODUCCION', 'MAIN','Producción', 'calculator' ,'ROLE_VENTAS_1');
 -- 
--- /*SUBMENU DE INVENTARIOS*/
--- INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('INVENTARIO-MAESTRO-ARTICULO', 'INVENTARIO','Datos maestro de artículo', 'document-text' ,'ROLE_VENTAS_1');
+-- -- INSERTA USUARIO
+-- INSERT INTO usuarios (apellido, email, enabled, nombre, password, username  ) VALUES ('castro', 'ignacio.cm84@gmail.com', 1, 'Ignacio','$2a$10$1tX2JqfI37TtMDR4ketkruhGj6Z9S1o.ORzvszxziKn4iRilxwCxa', 'icastro');
+-- INSERT INTO usuarios (apellido, email, enabled, nombre, password, username  ) VALUES ('Morales', 'produccion@felderfoods.com', 1, 'Lizeth','$2a$10$njvEFjEXP6.NOmsZOY4hTemsHPe9JBVuxgjOWrXAA7HQ4lYdAj/mu', 'lmorales');
+-- INSERT INTO usuarios (apellido, email, enabled, nombre, password, username ) VALUES ('jesus', 'alsecos@felderfoods.com', 1, 'jesus','$2a$10$c9vGbfTRL2dj2iSGQigCB.f3Ajf1h7L5phUnYf/Nyv65AjzBky.i.', 'jesus');
+-- INSERT INTO usuarios (apellido, email, enabled, nombre, password, username ) VALUES ('Zambrano', 'd.zambrano@felderfoods.com', 1, 'Daniel','$2a$10$c9vGbfTRL2dj2iSGQigCB.f3Ajf1h7L5phUnYf/Nyv65AjzBky.i.', 'dzambrano');
+-- 
+-- -- ASIGNA ROL A LOS USUARIO
+-- INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('1', '1');
+-- INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('2', '3');
+-- INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('3', '5');
+-- INSERT INTO usuarios_roles(usuario_id, role_id) VALUES ('4', '7');
 
-
-
-
-
-
-
-
-
-
-/***************************************************************PERMISOS PARA ROLE_VENTAS_1 ****************************************************************/
-
-/*MENU PRINCIPAL*/
-INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('VENTAS','MAIN', 'Ventas - Clientes', 'pricetags','ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('COMPRAS','MAIN', 'Compras - proveedores', 'cart' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('SOCIOS', 'MAIN','Socios De Negocios', 'people' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('INVENTARIO', 'MAIN','Inventario', 'grid' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre ,nombre, icono , role ) VALUES ('PRODUCCION', 'MAIN','Producción', 'calculator' ,'ROLE_VENTAS_1');
-
-
-/*SUB MENU VENTAS*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-ORDEN','VENTAS', 'Orden de venta', 'browsers' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-ENTREGA','VENTAS', 'Entrega', 'albums' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-DEVOLUCION','VENTAS', 'Devolución', 'refresh-circle' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-FACTURA','VENTAS', 'Factura de deudores', 'document-text' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-NOTA-CREDITO','VENTAS', 'Nota de crédito de clientes', 'documents' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-INFORMES','VENTAS', 'Informes de ventas', 'bar-chart' ,'ROLE_VENTAS_1');
-
-/*SUB MENU COMPRAS*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('COMPRAS-ORDEN','COMPRAS', 'Pedido', 'browsers' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('COMPRAS-ENTRADA','COMPRAS', 'Entrada de mercancías', 'browsers' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('COMPRAS-DEVOLUCION','COMPRAS', 'Devolución de mercancías', 'browsers' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('COMPRAS-FACTURA-PROVEEDOR','COMPRAS', 'Factura de proveedores', 'browsers' ,'ROLE_VENTAS_1');
-
-
-/*SUB MENU INVENTARIO*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('INVENTARIO-MAESTRO-ARTICULO','INVENTARIO', 'Datos maestro de artículo', 'document-text' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('INVENTARIO-INFORMES','INVENTARIO', 'Informe de inventarios', 'bar-chart' ,'ROLE_VENTAS_1');
-
-/*SUB MENU INVENTARIO->INFORMES*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role, menuFinal) VALUES ('INVENTARIO-INFORMES-STATUS-STOCK','INVENTARIO-INFORMES', 'Status de stock', 'clipboard' ,'ROLE_VENTAS_1', 1);
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('INVENTARIO-INFORMES-STOCK-ALMACEN','INVENTARIO-INFORMES', 'Informe de stocks en almacén', 'clipboard' ,'ROLE_VENTAS_1');
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('INVENTARIO-INFORMES-AUDITORIA-STOCKS','INVENTARIO-INFORMES', 'Informe de auditoría de stocks', 'clipboard' ,'ROLE_VENTAS_1');
-
-/*SUB MENU INVENTARIO->INFORMES->HTM*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role, html) VALUES ('INVENTARIO-INFORMES-STATUS-STOCK-HTML','INVENTARIO-INFORMES-STATUS-STOCK', 'Consultar', 'search' ,'ROLE_VENTAS_1','<h1>HTML</h1>');
-
-/*SUB MENU VENTAS->INFORMES*/
-INSERT INTO role_permiso ( clave, clavePadre, nombre, icono, role) VALUES ('VENTA-INFORMES-VENTA-ARTICULO','VENTA-INFORMES', 'Informe de ventas artículo', 'browsers' ,'ROLE_VENTAS_1');

@@ -1,7 +1,7 @@
-package com.spring.app.models.entity.sqlserver;
+package com.gff.models.entity.app;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,14 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Table;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario",
+        uniqueConstraints
+        = @UniqueConstraint(columnNames = {"nombre", "enabled", "email"}))
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,27 +25,31 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, length = 20)
+    @Column(length = 20, nullable = false)
     private String username;
 
-    @Column(length = 60)
+    @Column(length = 250, nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private Boolean enabled;
 
+    @Column(nullable = false)
     private String nombre;
 
     private String apellido;
 
-    @Column(unique = true)
+    @Column(nullable = false)
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"),
-            uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
-    private List<Role> roles;
+    private Integer idUsrAdd;
+
+    private Date addAt;
+
+    private Date upadateAt;
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Perfil perfil;
 
     public Integer getId() {
         return id;
@@ -79,14 +83,6 @@ public class Usuario implements Serializable {
         this.enabled = enabled;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -111,9 +107,41 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
+    public Date getAddAt() {
+        return addAt;
+    }
+
+    public void setAddAt(Date addAt) {
+        this.addAt = addAt;
+    }
+
+    public Integer getIdUsrAdd() {
+        return idUsrAdd;
+    }
+
+    public void setIdUsrAdd(Integer idUsrAdd) {
+        this.idUsrAdd = idUsrAdd;
+    }
+
+    public Date getUpadateAt() {
+        return upadateAt;
+    }
+
+    public void setUpadateAt(Date upadateAt) {
+        this.upadateAt = upadateAt;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", roles=" + roles + '}';
+        return "Usuario{" + "id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", idUsrAdd=" + idUsrAdd + ", addAt=" + addAt + ", upadateAt=" + upadateAt + ", perfil=" + perfil + '}';
     }
-        
+
 }

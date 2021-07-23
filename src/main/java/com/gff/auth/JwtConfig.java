@@ -1,4 +1,4 @@
-package com.spring.app.auth;
+package com.gff.auth;
 
 public class JwtConfig {
     public static final String LLAVE_SECRETA = "llave";

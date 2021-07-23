@@ -1,10 +1,12 @@
-package com.spring.app.auth;
+package com.gff.auth;
 
+import com.gff.models.services.app.UsuarioService;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -19,6 +21,9 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableAuthorizationServer
 public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+    
+    @Autowired
+    private Environment env;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -29,6 +34,9 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
 
     @Autowired
     private InfoAdicionalToken InfoAdicionalToken;
+    
+     @Autowired
+    private UsuarioService usuarioService;
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
@@ -38,17 +46,18 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
                 .tokenStore(tokenStore())
                 .accessTokenConverter(accessTokenConverter())
                 .tokenEnhancer(tokenEnhancerChain);
+//        .userDetailsService(usuarioService);
     }
 
     /* CONFIGURA CREDENCIALES DE LAS APP CLIENTES DE ESTA APPIREST*/
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("#$%&6Ls_-*+")
-                .secret(passwordEncoder.encode("#$%&6Ls_-*+"))
+        clients.inMemory().withClient(env.getProperty("app.user"))
+                .secret(passwordEncoder.encode(env.getProperty("app.pwd")))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token")
-                .accessTokenValiditySeconds(4000)
-                .refreshTokenValiditySeconds(3154000);
+                .accessTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.token")))
+                .refreshTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.refreshtoken")));
     }
 
     @Override
