@@ -45,7 +45,8 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore())
                 .accessTokenConverter(accessTokenConverter())
-                .tokenEnhancer(tokenEnhancerChain);
+                .tokenEnhancer(tokenEnhancerChain)
+                .reuseRefreshTokens(false);
 //        .userDetailsService(usuarioService);
     }
 
@@ -59,6 +60,8 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
                 .accessTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.token")))
                 .refreshTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.refreshtoken")));
     }
+    
+    
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {

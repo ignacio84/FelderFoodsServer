@@ -10,7 +10,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt,
+                        locked 
                     ) 
 VALUES            
                     (
@@ -19,7 +20,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19'
+                        '2021-07-19',
+                        1
                     );
 
 INSERT INTO catalogo_control 
@@ -29,7 +31,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt,
+                        locked
                     ) 
 VALUES            
                     (
@@ -38,7 +41,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19'
+                        '2021-07-19',
+                        1
                     );
 
 INSERT INTO catalogo_control 
@@ -48,7 +52,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt,
+                        locked
                     ) 
 VALUES            
                     (
@@ -57,7 +62,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19'
+                        '2021-07-19',
+                        1
                     );
 
 INSERT INTO catalogo_control 
@@ -67,7 +73,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt,
+                        locked
                     ) 
 VALUES            
                     (
@@ -76,7 +83,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19'
+                        '2021-07-19',
+                        0
                     );
 
 
@@ -87,7 +95,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt,
+                        locked
                     ) 
 VALUES            
                     (
@@ -96,7 +105,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20'
+                        '2021-07-20',
+                        0
                     );
 
 INSERT INTO catalogo_control 
@@ -106,7 +116,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt  ,
+                        locked
                     ) 
 VALUES            
                     (
@@ -115,7 +126,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20'
+                        '2021-07-20',
+                        0
                     );
 
 INSERT INTO catalogo_control 
@@ -125,7 +137,8 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  
+                        upadateAt ,
+                        locked
                     ) 
 VALUES            
                     (
@@ -134,7 +147,8 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20'
+                        '2021-07-20',
+                        0
                     );
 
 
@@ -169,7 +183,7 @@ INSERT INTO perfil
                     ) 
 VALUES            
                     (
-                        'ADMIN_1',
+                        'ADMIN',
                         'Perfil para usuario administrador.',
                         1,
                         -1,
@@ -199,6 +213,31 @@ VALUES
 
 
 /****************************************INSERTA EN LA TABLA PERFIL perfil_detalle********************************************/
+
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'ADMIN',
+                        'perfil rol administrador',
+                        'N',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1,
+                        1
+                    );
 INSERT INTO perfil_detalle
                     (   
                         nombre, 
@@ -214,7 +253,7 @@ INSERT INTO perfil_detalle
 VALUES            
                     (
                         'PRODUCCION',
-                        'perfil para usuario de produccion.',
+                        'perfil rol produccion.',
                         'S',
                         1,
                         -1,
@@ -297,7 +336,36 @@ VALUES
                     );
 
 
-/****************************************INSERTA EN LA TABLA PERFIL usuario********************************************/
+
+
+/****************************************INSERTA EN LA TABLA usuario********************************************/
+INSERT INTO usuario
+                    (   
+                        username, 
+                        password, 
+                        enabled, 
+                        nombre,
+                        apellido, 
+                        email, 
+                        idUsrAdd,
+                        addAt,
+                        upadateAt,
+                        perfil_id
+                    ) 
+VALUES            
+                    (
+                        'icastro*',
+                        '$2a$10$.wMDFU0hzXk5aHCsfEPt9uVqOvqny51GgrOwg9pKo6k9d6Wh5Cv1S',
+                        1,
+                        'Ignacio',
+                        'Castro',
+                        'sistemas*@felderfoods.com',
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        1
+                    );
+
 INSERT INTO usuario
                     (   
                         username, 
@@ -322,8 +390,10 @@ VALUES
                         -1,
                         '2021-07-20',
                         '2021-07-20',
-                        1
+                        2
                     );
+
+
 
 -- 
 -- -- INSERTA USUARIO

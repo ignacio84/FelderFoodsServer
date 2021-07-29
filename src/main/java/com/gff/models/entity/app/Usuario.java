@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "usuario",
         uniqueConstraints
-        = @UniqueConstraint(columnNames = {"nombre", "enabled", "email"}))
+        = @UniqueConstraint(columnNames = {"username", "enabled", "email"}))
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20, nullable = false, unique = true)
     private String username;
 
     @Column(length = 250, nullable = false)
@@ -143,5 +143,4 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Usuario{" + "id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", idUsrAdd=" + idUsrAdd + ", addAt=" + addAt + ", upadateAt=" + upadateAt + ", perfil=" + perfil + '}';
     }
-
 }
