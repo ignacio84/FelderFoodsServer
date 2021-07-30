@@ -34,8 +34,6 @@ public class CatalogoControl implements Serializable {
     @Column(nullable = false)
     private Integer idUsrAdd;
     
-    @Column(nullable = false)
-    private Boolean locked;
 
     private Date addAt;
 
@@ -95,18 +93,5 @@ public class CatalogoControl implements Serializable {
 
     public void setUpadateAt(Date upadateAt) {
         this.upadateAt = upadateAt;
-    }
-
-    public Boolean getLocked() {
-        return locked;
-    }
-
-    public void setLocked(Boolean locked) {
-        this.locked = locked;
-    }
-
-    @Override
-    public String toString() {
-        return "CatalogoControl{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", enabled=" + enabled + ", idUsrAdd=" + idUsrAdd + ", locked=" + locked + ", addAt=" + addAt + ", upadateAt=" + upadateAt + '}';
     }
 }

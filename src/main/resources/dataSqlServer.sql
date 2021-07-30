@@ -10,8 +10,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt,
-                        locked 
+                        upadateAt
                     ) 
 VALUES            
                     (
@@ -20,8 +19,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19',
-                        1
+                        '2021-07-19'
                     );
 
 INSERT INTO catalogo_control 
@@ -31,8 +29,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt,
-                        locked
+                        upadateAt
                     ) 
 VALUES            
                     (
@@ -41,8 +38,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19',
-                        1
+                        '2021-07-19'
                     );
 
 INSERT INTO catalogo_control 
@@ -52,8 +48,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt,
-                        locked
+                        upadateAt
                     ) 
 VALUES            
                     (
@@ -62,8 +57,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19',
-                        1
+                        '2021-07-19'
                     );
 
 INSERT INTO catalogo_control 
@@ -73,8 +67,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt,
-                        locked
+                        upadateAt
                     ) 
 VALUES            
                     (
@@ -83,8 +76,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-19',
-                        '2021-07-19',
-                        0
+                        '2021-07-19'
                     );
 
 
@@ -95,8 +87,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt,
-                        locked
+                        upadateAt
                     ) 
 VALUES            
                     (
@@ -105,8 +96,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20',
-                        0
+                        '2021-07-20'
                     );
 
 INSERT INTO catalogo_control 
@@ -116,8 +106,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt  ,
-                        locked
+                        upadateAt  
                     ) 
 VALUES            
                     (
@@ -126,8 +115,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20',
-                        0
+                        '2021-07-20'
                     );
 
 INSERT INTO catalogo_control 
@@ -137,8 +125,7 @@ INSERT INTO catalogo_control
                         enabled, 
                         idUsrAdd, 
                         addAt, 
-                        upadateAt ,
-                        locked
+                        upadateAt 
                     ) 
 VALUES            
                     (
@@ -147,8 +134,7 @@ VALUES
                         1,
                         -1,
                         '2021-07-20',
-                        '2021-07-20',
-                        0
+                        '2021-07-20'
                     );
 
 

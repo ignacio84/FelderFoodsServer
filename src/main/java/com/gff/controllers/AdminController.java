@@ -23,7 +23,7 @@ public class AdminController {
     private ICatalogoControlService ccService;
     
 //    @Secured({"ROLE_ADMIN"})
-    @GetMapping("Catalogo")
+    @GetMapping("allControls")
     public List<CatalogoControl> allControls() {
         return this.ccService.findAll();
     }
