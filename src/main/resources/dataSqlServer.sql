@@ -40,7 +40,6 @@ VALUES
                         '2021-07-19',
                         '2021-07-19'
                     );
-
 INSERT INTO catalogo_control 
                     (   
                         nombre, 
@@ -52,8 +51,8 @@ INSERT INTO catalogo_control
                     ) 
 VALUES            
                     (
-                        'ROLE_INSUMOS',
-                        'Rol para el área de almacén de insumos, protege toda la ruta del modulo de insumos.',
+                        'ROLE_MP_PT',
+                        'Rol para el almacén de materia prima y pruducto terminado, protege toda la ruta del modulo de materia prima y pruducto terminado.',
                         1,
                         -1,
                         '2021-07-19',
@@ -71,8 +70,8 @@ INSERT INTO catalogo_control
                     ) 
 VALUES            
                     (
-                        'ROLE_MP_PT',
-                        'Rol para el almacén de materia prima y pruducto terminado, protege toda la ruta del modulo de materia prima y pruducto terminado.',
+                        'ROLE_INSUMOS',
+                        'Rol para el área de almacén de insumos, protege toda la ruta del modulo de insumos.',
                         1,
                         -1,
                         '2021-07-19',
@@ -150,6 +149,25 @@ INSERT INTO perfil
                     ) 
 VALUES            
                     (
+                        'ADMIN',
+                        'Perfil para usuario administrador.',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
+
+INSERT INTO perfil 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt  
+                    ) 
+VALUES            
+                    (
                         'PRODUCCION',
                         'perfil para usuario de produccion.',
                         1,
@@ -169,14 +187,13 @@ INSERT INTO perfil
                     ) 
 VALUES            
                     (
-                        'ADMIN',
-                        'Perfil para usuario administrador.',
+                        'ALMACEN_MP_PT',
+                        'Perfil para usuario de materia prima y de producto terminado.',
                         1,
                         -1,
                         '2021-07-20',
                         '2021-07-20'
                     );
-
 INSERT INTO perfil 
                     (   
                         nombre, 
@@ -224,6 +241,7 @@ VALUES
                         1,
                         1
                     );
+
 INSERT INTO perfil_detalle
                     (   
                         nombre, 
@@ -238,87 +256,39 @@ INSERT INTO perfil_detalle
                     ) 
 VALUES            
                     (
-                        'PRODUCCION',
-                        'perfil rol produccion.',
-                        'S',
-                        1,
-                        -1,
-                        '2021-07-20',
-                        '2021-07-20',
-                        1,
-                        2
-                    );
-INSERT INTO perfil_detalle
-                    (   
-                        nombre, 
-                        descripcion, 
-                        permiso,--N:no permitir, V:ver  S:si permitir todo
-                        enabled, 
-                        idUsrAdd, 
-                        addAt, 
-                        upadateAt,  
-                        perfil_id,
-                        catalogo_control_id
-                    ) 
-VALUES            
-                    (
-                        'PRODUCCION',
-                        'perfil para usuario de produccion.',
-                        'S',
-                        0,
-                        -1,
-                        '2021-07-20',
-                        '2021-07-20',
-                        1,
-                        2
-                    );
-INSERT INTO perfil_detalle
-                    (   
-                        nombre, 
-                        descripcion, 
-                        permiso,--N:no permitir, V:ver  S:si permitir todo
-                        enabled, 
-                        idUsrAdd, 
-                        addAt, 
-                        upadateAt,  
-                        perfil_id,
-                        catalogo_control_id
-                    ) 
-VALUES            
-                    (
-                        'PRODUCCION',
-                        'perfil para usuario de produccion.',
-                        'V',
-                        1,
-                        -1,
-                        '2021-07-20',
-                        '2021-07-20',
-                        1,
-                        5
-                    );
-INSERT INTO perfil_detalle
-                    (   
-                        nombre, 
-                        descripcion, 
-                        permiso,--N:no permitir, V:ver  S:si permitir todo
-                        enabled, 
-                        idUsrAdd, 
-                        addAt, 
-                        upadateAt,  
-                        perfil_id,
-                        catalogo_control_id
-                    ) 
-VALUES            
-                    (
-                        'PRODUCCION',
-                        'perfil para usuario de produccion.',
+                        'ALMACEN_MP_PT',
+                        'perfil para usuario de almacen de materia prima y producto terminado.',
                         'N',
                         1,
                         -1,
                         '2021-07-20',
                         '2021-07-20',
+                        3,
+                        3
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'ALMACEN_MP_PT',
+                        'perfil para usuario de almacen de almacen.',
+                        'N',
                         1,
-                        6
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        3,
+                        2
                     );
 
 
@@ -376,7 +346,7 @@ VALUES
                         -1,
                         '2021-07-20',
                         '2021-07-20',
-                        2
+                        3
                     );
 
 
