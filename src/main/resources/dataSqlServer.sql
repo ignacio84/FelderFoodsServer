@@ -91,12 +91,63 @@ INSERT INTO catalogo_control
 VALUES            
                     (
                         'PROD_OF',
-                        'Control en el modulo de produccion para procesar ordenes de fabricación.',
+                        'Control en el modulo de produccion para ingresar a la pantalla: [Seleccionar O.F para procesar.]',
                         1,
                         -1,
                         '2021-07-20',
                         '2021-07-20'
                     );
+
+
+
+
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF_EC',
+                        'Control en el modulo de produccion para seleccionar la opción: [Entrega de componentes.], en la pantalla: [Seleccionar O.F para procesar.]',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
+
+
+
+
+INSERT INTO catalogo_control 
+                    (   
+                        nombre, 
+                        descripcion, 
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF_TR',
+                        'Control en el modulo de produccion para seleccionar la opción: [Terminación Report.], en la pantalla: [Seleccionar O.F para procesar.]',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20'
+                    );
+
+
+
+
+
+
+
 
 INSERT INTO catalogo_control 
                     (   
@@ -187,8 +238,8 @@ INSERT INTO perfil
                     ) 
 VALUES            
                     (
-                        'ALMACEN_MP_PT',
-                        'Perfil para usuario de materia prima y de producto terminado.',
+                        'ALMACEN_MP_PT,PRODUCCION',
+                        'Perfil para usuario de materia prima producto terminado y produccion.',
                         1,
                         -1,
                         '2021-07-20',
@@ -257,8 +308,8 @@ INSERT INTO perfil_detalle
 VALUES            
                     (
                         'ALMACEN_MP_PT',
-                        'perfil para usuario de almacen de materia prima y producto terminado.',
-                        'N',
+                        'Permiso para el modulo de almacen de materia prima y producto terminado.',
+                        'V',
                         1,
                         -1,
                         '2021-07-20',
@@ -281,8 +332,8 @@ INSERT INTO perfil_detalle
 VALUES            
                     (
                         'ALMACEN_MP_PT',
-                        'perfil para usuario de almacen de almacen.',
-                        'N',
+                        'Permiso para el modulo de produccion.',
+                        'V',
                         1,
                         -1,
                         '2021-07-20',
@@ -291,6 +342,78 @@ VALUES
                         2
                     );
 
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF',
+                        'Permiso para entrar a a la pantalla deleccionar orden de fabricación en el modulo de producción.',
+                        'S',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        3,
+                        5
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF_EC',
+                        'Control en el modulo de produccion para seleccionar la opción: [Entrega de componentes.], en la pantalla: [Seleccionar O.F para procesar.]',
+                        'S',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        3,
+                        6
+                    );
+INSERT INTO perfil_detalle
+                    (   
+                        nombre, 
+                        descripcion, 
+                        permiso,--N:no permitir, V:ver  S:si permitir todo
+                        enabled, 
+                        idUsrAdd, 
+                        addAt, 
+                        upadateAt,  
+                        perfil_id,
+                        catalogo_control_id
+                    ) 
+VALUES            
+                    (
+                        'PROD_OF_TR',
+                        'Control en el modulo de produccion para seleccionar la opción: [Terminación Report.], en la pantalla: [Seleccionar O.F para procesar.]',
+                        'S',
+                        1,
+                        -1,
+                        '2021-07-20',
+                        '2021-07-20',
+                        3,
+                        7
+                    );
 
 
 

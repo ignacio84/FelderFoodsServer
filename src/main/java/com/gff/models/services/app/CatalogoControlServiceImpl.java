@@ -19,6 +19,7 @@ public class CatalogoControlServiceImpl implements ICatalogoControlService {
     private ICatalogoControlDao ccsDao;
 
     @Transactional(readOnly = true)
+    @Override
     public List<CatalogoControl> findAll() {
         return (List<CatalogoControl>) this.ccsDao.findAll();
     }
