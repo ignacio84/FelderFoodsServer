@@ -2,8 +2,8 @@
 package com.gff.controllers;
 
 import com.gff.models.entity.app.CatalogoControl;
-import com.gff.models.entity.sap.OrdenFabricacion;
-import com.gff.models.services.sap.IOrdenFabricacionService;
+import com.gff.models.entity.sap.ProductionOrder;
+import com.gff.models.services.sap.IProductionOrderService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -20,17 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProduccionController {
     
     @Autowired
-    private IOrdenFabricacionService ofcServices;
+    private IProductionOrderService ofcServices;
     
     //Todas las ordenes de fabricacion en estatus abierto.
     @GetMapping("findAllOpenOrf")
-    public List<OrdenFabricacion> findAllOpenOrf() {
+    public List<ProductionOrder> findAllOpenOrf() {
         return this.ofcServices.findAllOpen();
     }
     
-    
     @GetMapping("findByIdOrf/{id}")
-    public OrdenFabricacion findByIdOrf(@PathVariable Integer id) {
+    public ProductionOrder findByIdOrf(@PathVariable Integer id) {
         return this.ofcServices.findById(id);
     }
 }

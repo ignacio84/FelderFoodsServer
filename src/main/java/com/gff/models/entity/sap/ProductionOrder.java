@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -18,134 +19,141 @@ import org.hibernate.annotations.NotFoundAction;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "OWOR")
-public class OrdenFabricacion implements Serializable {
+public class ProductionOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Integer DocEntry;
+    private Integer docEntry;
 
     //Número de orden de fabricación.
-    private Integer DocNum;
+    private Integer docNum;
 
     //Estado.
-    private String Status;
+    private String status;
 
     //Número de producto.
     @Column(name = "ItemCode", insertable = false, updatable = false)
-    private String ItemCode;
+    private String itemCode;
 
     //Almacén de destino.
-    private String Warehouse;
+    private String wareHouse;
 
     //Fecha de inicio.
-    private Date StartDate;
+    private Date startDate;
 
     //Fecha de inicio.
-    private Date CloseDate;
+    private Date closeDate;
 
     //Fecha de cierre real.
-    private String PlannedQty;
+    private String plannedQty;
 
     //Cantidad completada.
-    private String CmpltQty;
-
+    private String cmpltQty;
+    
     @JsonIgnoreProperties({"ItemCode"})
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ItemCode", referencedColumnName = "ItemCode", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
-    private Articulo articulo;
+    private Items items;
 
     public Integer getDocEntry() {
-        return DocEntry;
+        return docEntry;
     }
 
     public void setDocEntry(Integer DocEntry) {
-        this.DocEntry = DocEntry;
+        this.docEntry = DocEntry;
     }
 
     public Integer getDocNum() {
-        return DocNum;
+        return docNum;
     }
 
     public void setDocNum(Integer DocNum) {
-        this.DocNum = DocNum;
+        this.docNum = DocNum;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String Status) {
-        this.Status = Status;
+        this.status = Status;
     }
 
     public String getItemCode() {
-        return ItemCode;
+        return itemCode;
     }
 
     public void setItemCode(String ItemCode) {
-        this.ItemCode = ItemCode;
+        this.itemCode = ItemCode;
     }
 
     public String getWarehouse() {
-        return Warehouse;
+        return wareHouse;
     }
 
     public void setWarehouse(String Warehouse) {
-        this.Warehouse = Warehouse;
+        this.wareHouse = Warehouse;
     }
 
     public Date getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
     public void setStartDate(Date StartDate) {
-        this.StartDate = StartDate;
+        this.startDate = StartDate;
     }
 
     public Date getCloseDate() {
-        return CloseDate;
+        return closeDate;
     }
 
     public void setCloseDate(Date CloseDate) {
-        this.CloseDate = CloseDate;
+        this.closeDate = CloseDate;
     }
 
     public String getPlannedQty() {
-        if (PlannedQty != null) {
-            this.PlannedQty = String.format("%.4f", Double.valueOf(PlannedQty));
+        if (plannedQty != null) {
+            this.plannedQty = String.format("%.4f", Double.valueOf(plannedQty));
         }
-        return PlannedQty;
+        return plannedQty;
     }
 
     public void setPlannedQty(String PlannedQty) {
-        this.PlannedQty = PlannedQty;
+        this.plannedQty = PlannedQty;
     }
 
     public String getCmpltQty() {
-        if (CmpltQty != null) {
-            this.CmpltQty = String.format("%.4f", Double.valueOf(CmpltQty));
+        if (cmpltQty != null) {
+            this.cmpltQty = String.format("%.4f", Double.valueOf(cmpltQty));
         }
-        return CmpltQty;
+        return cmpltQty;
     }
 
     public void setCmpltQty(String CmpltQty) {
-        this.CmpltQty = CmpltQty;
+        this.cmpltQty = CmpltQty;
 
     }
 
-    public Articulo getArticulo() {
-        return articulo;
+    public String getWareHouse() {
+        return wareHouse;
     }
 
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
+    public void setWareHouse(String wareHouse) {
+        this.wareHouse = wareHouse;
+    }
+
+    public Items getItems() {
+        return items;
+    }
+
+    public void setItems(Items items) {
+        this.items = items;
     }
 
     @Override
     public String toString() {
-        return "OrdenFabricacion{" + "DocEntry=" + DocEntry + ", DocNum=" + DocNum + ", Status=" + Status + ", ItemCode=" + ItemCode + ", Warehouse=" + Warehouse + ", StartDate=" + StartDate + ", CloseDate=" + CloseDate + ", PlannedQty=" + PlannedQty + ", CmpltQty=" + CmpltQty + ", articulo=" + articulo + '}';
+        return "OrdenFabricacion{" + "docEntry=" + docEntry + ", docNum=" + docNum + ", status=" + status + ", itemCode=" + itemCode + ", wareHouse=" + wareHouse + ", startDate=" + startDate + ", closeDate=" + closeDate + ", plannedQty=" + plannedQty + ", cmpltQty=" + cmpltQty + ", items=" + items + '}';
     }
-
 }

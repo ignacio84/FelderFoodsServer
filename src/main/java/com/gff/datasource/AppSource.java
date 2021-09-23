@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories( entityManagerFactoryRef = "SqlServerEntityManager", 
                         transactionManagerRef = "SqlServerTransactionManager", 
                         basePackages = {"com.gff.models.dao.app"})//PACKAGE DONDE SE ENCUENTRAN LAS CLASES DAO DE SQLSERVER
-public class SqlServerApp {
+public class AppSource {
 
     
     @Autowired

@@ -8,36 +8,36 @@ import javax.persistence.Table;
 /*Representa tabla del sistema SAP. OITM - Articulos*/
 @Entity
 @Table(name = "OITM")
-public class Articulo implements Serializable {
+public class Items implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     //Número de artículo.
     @Id
-    private String ItemCode;
+    private String itemCode;
     
     //Nombre del artículo.
-    private String ItemName;
+    private String itemName;
 
     public String getItemCode() {
-        return ItemCode;
+        return itemCode;
     }
 
     public void setItemCode(String ItemCode) {
-        this.ItemCode = ItemCode;
+        this.itemCode = ItemCode;
     }
 
     public String getItemName() {
-        return ItemName;
+        return itemName;
     }
 
     public void setItemName(String ItemName) {
-        this.ItemName = ItemName;
+        this.itemName = ItemName;
     }
 
     @Override
     public String toString() {
-        return "Articulo{" + "ItemCode=" + ItemCode + ", ItemName=" + ItemName + '}';
+        return "Articulo{" + "ItemCode=" + itemCode + ", ItemName=" + itemName + '}';
     }
 
 }

@@ -1,5 +1,6 @@
 package com.gff;
 
+import com.gff.models.services.sap.IGoodsReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,17 +12,20 @@ public class appApplication implements CommandLineRunner {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    
+    @Autowired
+    private IGoodsReceiptService service;
 
     public static void main(String[] args) {
         SpringApplication.run(appApplication.class, args);
     }
-
     
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(passwordEncoder.encode("12345"));
-        }
+        this.service.findAll();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(passwordEncoder.encode("12345"));
+//        }
     }
 
 }

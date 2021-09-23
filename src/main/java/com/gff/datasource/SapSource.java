@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories( entityManagerFactoryRef = "SqlServerSapEntityManager", 
                         transactionManagerRef = "SqlServerSapTransactionManager", 
                         basePackages = {"com.gff.models.dao.sap"})
-public class SqlServerSap {
+public class SapSource {
 
     @Autowired
     private Environment env;
