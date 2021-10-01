@@ -8,7 +8,7 @@ public interface IProductionOrderDao extends CrudRepository<ProductionOrder, Int
 
     //P:PLANIFICADO, R:LIBERADO, L:CERRADO, C:CANCELADO
     @Query(" SELECT O "
-            + " FROM OrdenFabricacion O   " 
+            + " FROM ProductionOrder O   " 
             + " WHERE   O.status='R'  "
             + " ORDER BY O.startDate DESC ")
     public List<ProductionOrder> findAllOpen();

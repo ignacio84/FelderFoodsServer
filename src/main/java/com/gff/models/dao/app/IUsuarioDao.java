@@ -17,6 +17,7 @@ public interface IUsuarioDao extends CrudRepository<Usuario, Integer> {
             + " and u.enabled=true "
             + " and p.enabled=true "
             + " and pd.enabled=true "
+            + " and pd.permiso!='N' "
             + " and ct.enabled=true"  )
     public Usuario findByUsername2(String username);
 

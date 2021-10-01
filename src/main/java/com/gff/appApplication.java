@@ -22,7 +22,6 @@ public class appApplication implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
-        this.service.findAll();
 //        for (int i = 0; i < 10; i++) {
 //            System.out.println(passwordEncoder.encode("12345"));
 //        }

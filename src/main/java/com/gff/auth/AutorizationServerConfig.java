@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -21,7 +22,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableAuthorizationServer
 public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    
+
     @Autowired
     private Environment env;
 
@@ -34,8 +35,8 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
 
     @Autowired
     private InfoAdicionalToken InfoAdicionalToken;
-    
-     @Autowired
+
+    @Autowired
     private UsuarioService usuarioService;
 
     @Override
@@ -60,8 +61,6 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
                 .accessTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.token")))
                 .refreshTokenValiditySeconds(Integer.valueOf(env.getProperty("app.timer.refreshtoken")));
     }
-    
-    
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -80,6 +79,12 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
         jwtAccessTokenConverter.setSigningKey(JwtConfig.RSA_PRIVADA);
         jwtAccessTokenConverter.setVerifierKey(JwtConfig.RSA_PUBLICA);
         return jwtAccessTokenConverter;
+    }
+
+    /* REMUEVE EL PREFIJO ROLE */
+    @Bean
+    GrantedAuthorityDefaults grantedAuthorityDefaults() {
+        return new GrantedAuthorityDefaults(""); // Remove the ROLE_ prefix
     }
 
 }

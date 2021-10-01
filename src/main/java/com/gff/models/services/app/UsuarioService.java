@@ -27,23 +27,29 @@ public class UsuarioService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = usuarioDao.findByUsername2(username);
-
+        List<GrantedAuthority> grathRoles=null;
         if (usuario == null) {
             System.out.println("Error en el login: no existe usuario '" + username + "' en el sistema");
             throw new UsernameNotFoundException("Error en el login: no existe usuario '" + username + "' en el sistema");
         }
 
-         List<GrantedAuthority> roles =usuario.getPerfil().getPerfilDetalle()
-        .stream()
-        .map(data->data.getCatalogoControl())
-        .filter( data->data.getNombre().indexOf("ROLE_")!=-1)
-        .map(role -> new SimpleGrantedAuthority(role.getNombre()))
-        .collect(Collectors.toList());
-         
-        if(roles.size()==0){
-            throw new InvalidGrantException("Usuario sin autorizaciones!!");
+        List<String> roles = usuario.getPerfil().getPerfilDetalle()
+                .stream()
+                .map(data -> data.getCatalogoControl())
+                .filter(data -> data.getNombre().indexOf("ROLE_") != -1)
+                .map(role -> role.getNombre())
+                .collect(Collectors.toList());
+
+        if (roles.size() > 0) {//si existe por lo menos un rol activo.
+            grathRoles = usuario.getPerfil().getPerfilDetalle()
+                    .stream()
+                    .map(data -> data.getCatalogoControl())
+                    .map(role -> new SimpleGrantedAuthority(role.getNombre()))
+                    .collect(Collectors.toList());
+        }else{
+             throw new UsernameNotFoundException( username + "' : unauthorized");
         }
-        return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, roles);
+        return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, grathRoles);
     }
 
     @Transactional(readOnly = true)

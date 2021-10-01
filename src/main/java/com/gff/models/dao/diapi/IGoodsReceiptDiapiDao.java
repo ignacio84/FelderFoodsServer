@@ -1,7 +1,7 @@
 
 package com.gff.models.dao.diapi;
 
-public interface ITerminacionReportDao {
+public interface IGoodsReceiptDiapiDao {
     
     public void save()throws Exception ;
     
