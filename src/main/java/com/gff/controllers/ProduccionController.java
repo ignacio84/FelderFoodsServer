@@ -39,7 +39,6 @@ public class ProduccionController {
         return this.ofcServices.findById(id);
     }
     
-    
     @GetMapping("findAllGre")
     public List<GoodsReceipt> findAllGre() {
         return this.greService.findAll();

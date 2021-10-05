@@ -19,7 +19,7 @@ public class GoodsReceiptImpl implements IGoodsReceiptService {
 
     @Override
     public void save() throws Exception {
-//        this.diapiDao.save();
+        this.diapiDao.save();
     }
 
 //    @Override

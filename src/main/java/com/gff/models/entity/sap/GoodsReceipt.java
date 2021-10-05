@@ -27,7 +27,6 @@ public class GoodsReceipt implements Serializable {
     //Número de terminacion report.
     private Integer docNum;
 
-
     //Comentarios
     private String Comments;
     

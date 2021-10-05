@@ -1,42 +1,38 @@
-
 package com.gff.models.entity.sap;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /*Representa tabla del sistema SAP. OIGN - Terminacion report lineas, Entrada de mercancías lineas*/
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "IGN1")
+@IdClass(GoodsReceiptLinesPK.class)
 public class GoodsReceiptLines implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     private Integer docEntry;
-    
+
+    @Id
     private Integer lineNum;
-    
+
     private Integer baseRef;
-    
-    private Integer baseEntry;
-    
-    private String lineStatus;
-    
-    private String itemCode;
-    
-    private String dscription;
-    
-    private String openQty;
-    
-    private String price;
-    
-    private String currency;
-    
-    private String lineTotal;
+
+    private String quantity;
+
+    @Transient
+    private String lote;
+
+    @Transient
+    private List<Batch> batches;
 
     public Integer getDocEntry() {
         return docEntry;
@@ -62,72 +58,33 @@ public class GoodsReceiptLines implements Serializable {
         this.baseRef = baseRef;
     }
 
-    public Integer getBaseEntry() {
-        return baseEntry;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setBaseEntry(Integer baseEntry) {
-        this.baseEntry = baseEntry;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getLineStatus() {
-        return lineStatus;
+    public String getLote() {
+        return lote;
     }
 
-    public void setLineStatus(String lineStatus) {
-        this.lineStatus = lineStatus;
+    public void setLote(String lote) {
+        this.lote = lote;
     }
 
-    public String getItemCode() {
-        return itemCode;
+    public List<Batch> getBatches() {
+        return batches;
     }
 
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
-    }
-
-    public String getDscription() {
-        return dscription;
-    }
-
-    public void setDscription(String dscription) {
-        this.dscription = dscription;
-    }
-
-    public String getOpenQty() {
-        return openQty;
-    }
-
-    public void setOpenQty(String openQty) {
-        this.openQty = openQty;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getLineTotal() {
-        return lineTotal;
-    }
-
-    public void setLineTotal(String lineTotal) {
-        this.lineTotal = lineTotal;
+    public void setBatches(List<Batch> batches) {
+        this.batches = batches;
     }
 
     @Override
     public String toString() {
-        return "GoodsReceiptLines{" + "docEntry=" + docEntry + ", lineNum=" + lineNum + ", baseRef=" + baseRef + ", baseEntry=" + baseEntry + ", lineStatus=" + lineStatus + ", itemCode=" + itemCode + ", dscription=" + dscription + ", openQty=" + openQty + ", price=" + price + ", currency=" + currency + ", lineTotal=" + lineTotal + '}';
+        return "GoodsReceiptLines{" + "docEntry=" + docEntry + ", lineNum=" + lineNum + ", baseRef=" + baseRef + ", quantity=" + quantity + ", lote=" + lote + ", batches=" + batches + '}';
     }
+
 }
